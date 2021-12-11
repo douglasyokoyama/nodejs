@@ -3,8 +3,14 @@
 Base curse from udemy:
 https://www.udemy.com/course/nodejs-the-complete-guide
 
-## Introduction
+## Section 01 - Introduction
 
-## Javascript Basics
+## Section 02 - Javascript Basics
 
-## Node Basics
+## Section 03 - Node Basics
+
+## Section 04 - Workflow and Debugging
+
+## Section 05 - Express
+
+## Section 06 - Dynamic content

@@ -1,12 +1,23 @@
-const http = require("http");
+const path = require("path");
 
-const server = http.createServer((req, res) => {
-  res.setHeader("Content-Type", "text/html");
-  res.write("<html>");
-  res.write("<head><title>My first page</title></head>");
-  res.write("<body><h1>hello from nodejs</h1></body>");
-  res.write("</html>");
-  res.end();
+const express = require("express");
+
+const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", "views");
+
+const adminData = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/admin", adminData.routes);
+app.use(shopRoutes);
+
+app.use((req, res, next) => {
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
-server.listen(3000);
+app.listen(3000);
